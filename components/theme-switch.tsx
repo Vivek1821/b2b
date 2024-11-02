@@ -6,7 +6,8 @@ import { SwitchProps, useSwitch } from "@nextui-org/switch";
 import { useTheme } from "next-themes";
 import { useIsSSR } from "@react-aria/ssr";
 import clsx from "clsx";
-import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
+
+import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -33,21 +34,17 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
     getWrapperProps,
   } = useSwitch({
     isSelected: theme === "light" || isSSR,
-    "aria-label": `Switch to ${
-      theme === "light" || isSSR ? "dark" : "light"
-    } mode`,
+    "aria-label": `Switch to ${theme === "light" || isSSR ? "dark" : "light"} mode`,
     onChange,
   });
 
-  const MyComponent: any = Component;
-
   return (
-    <MyComponent
+    <Component
       {...getBaseProps({
         className: clsx(
           "px-px transition-opacity hover:opacity-80 cursor-pointer",
           className,
-          classNames?.base
+          classNames?.base,
         ),
       })}
     >
@@ -69,16 +66,16 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
               "px-0",
               "mx-0",
             ],
-            classNames?.wrapper
+            classNames?.wrapper,
           ),
         })}
       >
         {!isSelected || isSSR ? (
-          <MdOutlineLightMode size={22} />
+          <SunFilledIcon size={22} />
         ) : (
-          <MdOutlineDarkMode size={22} />
+          <MoonFilledIcon size={22} />
         )}
       </div>
-    </MyComponent>
+    </Component>
   );
 };
