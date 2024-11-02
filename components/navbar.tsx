@@ -6,6 +6,7 @@ import {
   NavbarMenuToggle,
   NavbarBrand,
   NavbarMenuItem,
+  NavbarItem,
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
 import NextLink from "next/link";
@@ -55,6 +56,25 @@ export const Navbar = () => {
             <p className="text-2xl font-semibold">B2B</p>
           </NextLink>
         </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent justify="center">
+        <NavbarItem>
+          <div
+            className="cursor-pointer"
+            onClick={() => router.push("/all-rides")}
+          >
+            All Rides
+          </div>
+        </NavbarItem>
+        <NavbarItem>
+          <div
+            className="cursor-pointer"
+            onClick={() => router.push("/post-ride")}
+          >
+            Post Ride
+          </div>
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent justify="end">
